@@ -141,26 +141,29 @@ And payloads are shown below with respective index numbers. Seperator character 
 BigBug is tested under 1MBaud continuous serial data rate and maximum number of displayed (remembered) message lines is limited to 100k by default. User can override that limit by defining `MaxDataRows` under `General` section of settings.ini file (in BigBug.exe working directory).
 Filtering is possible for messages. As an example entering `igb` into filter box will match message lines containing text `BigBug` and `|` character can be used for or'ing the filter confitions e.g. `filter1|filter2`.
 
-## **For simulation/test on PC**
-Recommended tool: https://sourceforge.net/projects/com0com/
-
 # **Screenshots**
 1) Open a project. BigBug scans every file in the selected folder and every line of them to learn BigBug descriptors. After succesfully opening, number of descriptors found is shown next to the project name.
 
-![Open a project](https://github.com/atakansarioglu/bigbug/raw/master/Example/ScreenShots/BigBug-ScreenShot%20(1).png "Open a project")
+<img src="https://github.com/atakansarioglu/bigbug/raw/master/Example/ScreenShots/BigBug-ScreenShot%20(1).png" width="598" alt="Open a project">
 
 2) Connect to serial port (comport)
 
-![Connect to serial port comport](https://github.com/atakansarioglu/bigbug/raw/master/Example/ScreenShots/BigBug-ScreenShot%20(3).png "Connect to serial port comport")
+<img src="https://github.com/atakansarioglu/bigbug/raw/master/Example/ScreenShots/BigBug-ScreenShot%20(3).png" width="598" alt="Connect to serial port comport">
 
 3) Messages are coming from UART will be displayed on the screen.
 
-![Messages are coming](https://github.com/atakansarioglu/bigbug/raw/master/Example/ScreenShots/BigBug-ScreenShot%20(4).png "Messages are coming")
+<img src="https://github.com/atakansarioglu/bigbug/raw/master/Example/ScreenShots/BigBug-ScreenShot%20(4).png" width="598" alt="Messages are coming">
 
 4) Filter messages to see specific events of interest. Filter is case-insensitive and wildcard by-default. Different filters can be combined by or operator `|` character.
 
-![Filter messages](https://github.com/atakansarioglu/bigbug/raw/master/Example/ScreenShots/BigBug-ScreenShot%20(5).png "Filter messages")
+<img src="https://github.com/atakansarioglu/bigbug/raw/master/Example/ScreenShots/BigBug-ScreenShot%20(5).png" width="598" alt="Filter messages">
 
 5) Save the received messages to file. To save, port should be closed.
 
-![Save the received messages to file](https://github.com/atakansarioglu/bigbug/raw/master/Example/ScreenShots/BigBug-ScreenShot%20(8).png "Save the received messages to file")
+<img src="https://github.com/atakansarioglu/bigbug/raw/master/Example/ScreenShots/BigBug-ScreenShot%20(8).png" width="598" alt="Save the received messages to file">
+
+# **Notes**
+
+## **For simulation/test on PC**
+Recommended tool: https://sourceforge.net/projects/com0com/
+
