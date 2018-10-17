@@ -1,5 +1,5 @@
 # **BigBug: Remote printf Tool**
-## Makes debugging of embedded projects easy yet no need for debugger!
+## _Makes debugging of embedded projects easy yet no need for debugger!_
 <a href="https://github.com/atakansarioglu/bigbug/releases/latest" alt="Download Latest"><img src="https://img.shields.io/badge/download-latest-brightgreen.svg" /></a>
 
 ## **Introduction**
