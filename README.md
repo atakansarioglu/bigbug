@@ -147,20 +147,20 @@ Recommended tool: https://sourceforge.net/projects/com0com/
 # **Screenshots**
 1) Open a project. BigBug scans every file in the selected folder and every line of them to learn BigBug descriptors. After succesfully opening, number of descriptors found is shown next to the project name.
 
-![alt text](https://github.com/atakansarioglu/bigbug/raw/master/Example/ScreenShots/BigBug-ScreenShot%20(1).png "Open a project")
+![Open a project](https://github.com/atakansarioglu/bigbug/raw/master/Example/ScreenShots/BigBug-ScreenShot%20(1).png "Open a project")
 
 2) Connect to serial port (comport)
 
-![alt text](https://github.com/atakansarioglu/bigbug/raw/master/Example/ScreenShots/BigBug-ScreenShot-3.png "Connect to serial port comport")
+![Connect to serial port comport](https://github.com/atakansarioglu/bigbug/raw/master/Example/ScreenShots/BigBug-ScreenShot%20(3).png "Connect to serial port comport")
 
 3) Messages are coming from UART will be displayed on the screen.
 
-![alt text](https://github.com/atakansarioglu/bigbug/raw/master/Example/ScreenShots/BigBug-ScreenShot-4.png "Messages are coming")
+![Messages are coming](https://github.com/atakansarioglu/bigbug/raw/master/Example/ScreenShots/BigBug-ScreenShot%20(4).png "Messages are coming")
 
 4) Filter messages to see specific events of interest. Filter is case-insensitive and wildcard by-default. Different filters can be combined by or operator `|` character.
 
-![alt text](https://github.com/atakansarioglu/bigbug/raw/master/Example/ScreenShots/BigBug-ScreenShot-5.png "Filter messages")
+![Filter messages](https://github.com/atakansarioglu/bigbug/raw/master/Example/ScreenShots/BigBug-ScreenShot%20(5).png "Filter messages")
 
 5) Save the received messages to file. To save, port should be closed.
 
-![alt text](https://github.com/atakansarioglu/bigbug/raw/master/Example/ScreenShots/BigBug-ScreenShot-8.png "Save the received messages to file")
+![Save the received messages to file](https://github.com/atakansarioglu/bigbug/raw/master/Example/ScreenShots/BigBug-ScreenShot%20(8).png "Save the received messages to file")
