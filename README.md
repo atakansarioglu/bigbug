@@ -1,5 +1,5 @@
 # **BigBug: Remote printf Tool**
-##Makes debugging of embedded projects easy yet no need for debugger!
+## Makes debugging of embedded projects easy yet no need for debugger!
 ---
 
 ## **Introduction**
