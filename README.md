@@ -1,11 +1,9 @@
 # **BigBug: Remote printf Tool**
 ## Makes debugging of embedded projects easy yet no need for debugger!
-<a href="https://github.com/atakansarioglu/bigbug/releases/latest" alt="Download Latest">
-        <img src="https://img.shields.io/badge/download-latest-brightgreen.svg" /></a>
-        
+<a href="https://github.com/atakansarioglu/bigbug/releases/latest" alt="Download Latest"><img src="https://img.shields.io/badge/download-latest-brightgreen.svg" /></a>
 
 ## **Introduction**
-Sooner or later, every embedded engineer faces the insufficient debugging capabilities of microcontrollers. Unless connecting a debugger, or interrupting/stopping th, it is a very hard task to collect information about what is going on in the box. You can use serial port to print messages but communication line has limited speed, especially when the environment is noisy. The speed limit of the communication also limits how often and how long you can printf.
+Sooner or later, every embedded engineer faces the insufficient debugging capabilities of microcontrollers. Unless connecting a debugger, or interrupting/stopping the execution, it is challenging to collect information about what is going on in the box. You can use serial port to print messages but communication line has limited speed, especially when the environment is noisy. The speed limit of the communication also limits how often and how long you can printf.
 
 Imagine you are using RTOS and have many tasks running asynchronously. The best way of debugging on this environment is printing as many as possible messages on function entry, exit, measurement, event handlers, overflow of some timers etc. But honestly, every message slows down the system more. You can't send a sentence of 10 letters long only at entry of a method.
 
