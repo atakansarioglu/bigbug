@@ -3,8 +3,6 @@
 <a href="https://github.com/atakansarioglu/bigbug/releases/latest" alt="Download Latest">
         <img src="https://img.shields.io/badge/download-latest-brightgreen.svg" /></a>
         
----
-
 
 ## **Introduction**
 Sooner or later, every embedded engineer faces the insufficient debugging capabilities of microcontrollers. Unless connecting a debugger, or interrupting/stopping th, it is a very hard task to collect information about what is going on in the box. You can use serial port to print messages but communication line has limited speed, especially when the environment is noisy. The speed limit of the communication also limits how often and how long you can printf.
@@ -53,7 +51,7 @@ Here BigBug scans this source line and knows `HE` means `Hello World!`. Whenever
 
 This example shows another example that uses `printf()` and message has a *replacement payload*. The (0th) payload that is sent by the MCU during runtime, will be substituted to `{0}` and displayed on the screen as i.e. `New measurement x=-3.14` or `New measurement x=Low`. 
 ~~~~c++
-printf("mX%i\n", 32);//@BB[mX] New measurement x={0}
+printf("Me%i\n", 32);//@BB[Me] New measurement x={0}
 ~~~~
 The line above sends `mX32\n` and `32` is evaluated as 0th payload. Finally, BigBug displays `New measurement x=32`
 
