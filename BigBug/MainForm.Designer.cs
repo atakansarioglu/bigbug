@@ -262,7 +262,7 @@
             this.MinimumSize = new System.Drawing.Size(847, 580);
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "BigBug v3.0.0";
+            this.Text = "BigBug v3.0.1";
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

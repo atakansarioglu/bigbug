@@ -57,7 +57,7 @@ namespace BigBug
             SetVisuals(VisualStates.Default);
 
             // Restore Baud rate and MaxDataRows from the settings.
-            textBaud.Text = settings.LoadSetting("General.Baud");
+            textBaud.Text = (settings.LoadSetting("General.Baud") != "") ? settings.LoadSetting("General.Baud") : "9600";
             int maxDataRowsSetting = 0;
             if (int.TryParse(settings.LoadSetting("General.MaxDataRows"), out maxDataRowsSetting))
                 maxDataRows = maxDataRowsSetting;
