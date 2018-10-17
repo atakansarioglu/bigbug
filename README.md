@@ -10,7 +10,7 @@ Imagine you are using RTOS and have many tasks running asynchronously. The best 
 Fortunately, BigBug comes to help! You can tell many things only by sending 2-letter codes and BigBug translates into human language. 
 
 ## **How Can BigBug Help You?**
-BigBug is a tool for displaying comprehensive debug messages on PC by sending only 2 letters (plus newline '\n') from microcontroller via serial port (uart). The messages are interpreted on the PC and decoded using a lookup table that is obtained directly from your project source code. The biggest benefit is keeping the mcu busy for the real tasks rather than spending time for printing debug messages.
+BigBug is a tool for displaying comprehensive debug messages on PC by sending only 2 letters (plus newline `\n`) from microcontroller via serial port (UART). The messages are interpreted on the PC and decoded using a lookup table that is obtained directly from your project source code. The biggest benefit is keeping the mcu busy for the real tasks rather than spending time for printing debug messages.
 
 Consider the example:
 ~~~~c
@@ -51,7 +51,7 @@ This example shows another example that uses `printf()` and message has a *repla
 ~~~~c++
 printf("Me%i\n", 32);//@BB[Me] New measurement x={0}
 ~~~~
-The line above sends `mX32\n` and `32` is evaluated as 0th payload. Finally, BigBug displays `New measurement x=32`
+The line above sends `Me32\n` and `32` is evaluated as 0th payload. Finally, BigBug displays `New measurement x=32`
 
 **3) Multiple payloads** (replacement, replacement, explicit enumerated, implicit enumerated).
 
