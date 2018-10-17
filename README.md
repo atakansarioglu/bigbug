@@ -147,7 +147,7 @@ Recommended tool: https://sourceforge.net/projects/com0com/
 # **Screenshots**
 1) Open a project. BigBug scans every file in the selected folder and every line of them to learn BigBug descriptors. After succesfully opening, number of descriptors found is shown next to the project name.
 
-![alt text]("https://github.com/atakansarioglu/bigbug/raw/master/Example/ScreenShots/BigBug-ScreenShot (1).png" "Open a project")
+![alt text](https://github.com/atakansarioglu/bigbug/raw/master/Example/ScreenShots/BigBug-ScreenShot%20(1).png "Open a project")
 
 2) Connect to serial port (comport)
 
