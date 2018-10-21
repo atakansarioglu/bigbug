@@ -31,7 +31,6 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.buttonNewProject = new System.Windows.Forms.Button();
-            this.openFile = new System.Windows.Forms.OpenFileDialog();
             this.buttonPortOpenClose = new System.Windows.Forms.Button();
             this.comboPorts = new System.Windows.Forms.ComboBox();
             this.timerSerialPortListUpdate = new System.Windows.Forms.Timer(this.components);
@@ -46,9 +45,10 @@
             this.saveFile = new System.Windows.Forms.SaveFileDialog();
             this.textFilter = new System.Windows.Forms.TextBox();
             this.labelFilter = new System.Windows.Forms.Label();
-            this.buttonRefreshProject = new System.Windows.Forms.Button();
+            this.buttonNewSingleFileProject = new System.Windows.Forms.Button();
             this.dataGrid = new System.Windows.Forms.DataGridView();
             this.labelClearFilter = new System.Windows.Forms.Label();
+            this.browserOpenSingleFile = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -62,11 +62,6 @@
             this.buttonNewProject.Text = "&New Project";
             this.buttonNewProject.UseVisualStyleBackColor = true;
             this.buttonNewProject.Click += new System.EventHandler(this.buttonNewProject_Click);
-            // 
-            // openFile
-            // 
-            this.openFile.FileName = "openFile";
-            this.openFile.Multiselect = true;
             // 
             // buttonPortOpenClose
             // 
@@ -85,7 +80,7 @@
             this.comboPorts.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.comboPorts.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboPorts.FormattingEnabled = true;
-            this.comboPorts.Location = new System.Drawing.Point(464, 16);
+            this.comboPorts.Location = new System.Drawing.Point(467, 18);
             this.comboPorts.Margin = new System.Windows.Forms.Padding(4);
             this.comboPorts.Name = "comboPorts";
             this.comboPorts.Size = new System.Drawing.Size(160, 24);
@@ -102,7 +97,7 @@
             // 
             this.textBaud.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.textBaud.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.textBaud.Location = new System.Drawing.Point(633, 17);
+            this.textBaud.Location = new System.Drawing.Point(635, 18);
             this.textBaud.Margin = new System.Windows.Forms.Padding(4);
             this.textBaud.Name = "textBaud";
             this.textBaud.Size = new System.Drawing.Size(73, 23);
@@ -143,7 +138,7 @@
             this.labelProjectName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.labelProjectName.AutoSize = true;
-            this.labelProjectName.Location = new System.Drawing.Point(232, 21);
+            this.labelProjectName.Location = new System.Drawing.Point(302, 21);
             this.labelProjectName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelProjectName.Name = "labelProjectName";
             this.labelProjectName.Size = new System.Drawing.Size(0, 17);
@@ -186,17 +181,16 @@
             this.labelFilter.TabIndex = 14;
             this.labelFilter.Text = "Filter";
             // 
-            // buttonRefreshProject
+            // buttonNewSingleFileProject
             // 
-            this.buttonRefreshProject.Location = new System.Drawing.Point(124, 15);
-            this.buttonRefreshProject.Margin = new System.Windows.Forms.Padding(4);
-            this.buttonRefreshProject.Name = "buttonRefreshProject";
-            this.buttonRefreshProject.Size = new System.Drawing.Size(100, 28);
-            this.buttonRefreshProject.TabIndex = 15;
-            this.buttonRefreshProject.Text = "Refresh";
-            this.buttonRefreshProject.UseVisualStyleBackColor = true;
-            this.buttonRefreshProject.Visible = false;
-            this.buttonRefreshProject.Click += new System.EventHandler(this.buttonRefreshProject_Click);
+            this.buttonNewSingleFileProject.Location = new System.Drawing.Point(124, 15);
+            this.buttonNewSingleFileProject.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonNewSingleFileProject.Name = "buttonNewSingleFileProject";
+            this.buttonNewSingleFileProject.Size = new System.Drawing.Size(170, 28);
+            this.buttonNewSingleFileProject.TabIndex = 15;
+            this.buttonNewSingleFileProject.Text = "New Single File Project";
+            this.buttonNewSingleFileProject.UseVisualStyleBackColor = true;
+            this.buttonNewSingleFileProject.Click += new System.EventHandler(this.buttonNewSingleFileProject_Click);
             // 
             // dataGrid
             // 
@@ -239,6 +233,10 @@
             this.labelClearFilter.Visible = false;
             this.labelClearFilter.Click += new System.EventHandler(this.labelClearFilter_Click);
             // 
+            // browserOpenSingleFile
+            // 
+            this.browserOpenSingleFile.FileName = "browserOpenSingleFile";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -247,7 +245,7 @@
             this.Controls.Add(this.labelClearFilter);
             this.Controls.Add(this.dataGrid);
             this.Controls.Add(this.labelFilter);
-            this.Controls.Add(this.buttonRefreshProject);
+            this.Controls.Add(this.buttonNewSingleFileProject);
             this.Controls.Add(this.textFilter);
             this.Controls.Add(this.labelAuthor);
             this.Controls.Add(this.labelProjectName);
@@ -262,7 +260,7 @@
             this.MinimumSize = new System.Drawing.Size(847, 580);
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "BigBug v3.0.1";
+            this.Text = "BigBug v3.1.0";
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -272,7 +270,6 @@
         #endregion
 
         private System.Windows.Forms.Button buttonNewProject;
-        private System.Windows.Forms.OpenFileDialog openFile;
         private System.Windows.Forms.Button buttonPortOpenClose;
         private System.Windows.Forms.ComboBox comboPorts;
         private System.Windows.Forms.Timer timerSerialPortListUpdate;
@@ -287,9 +284,10 @@
         private System.Windows.Forms.SaveFileDialog saveFile;
         private System.Windows.Forms.TextBox textFilter;
         private System.Windows.Forms.Label labelFilter;
-        private System.Windows.Forms.Button buttonRefreshProject;
+        private System.Windows.Forms.Button buttonNewSingleFileProject;
         private System.Windows.Forms.DataGridView dataGrid;
         private System.Windows.Forms.Label labelClearFilter;
+        private System.Windows.Forms.OpenFileDialog browserOpenSingleFile;
     }
 }
 

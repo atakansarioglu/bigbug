@@ -59,7 +59,7 @@ namespace BigBug
             // Restore Baud rate and MaxDataRows from the settings.
             textBaud.Text = (settings.LoadSetting("General.Baud") != "") ? settings.LoadSetting("General.Baud") : "9600";
             int maxDataRowsSetting = 0;
-            if (int.TryParse(settings.LoadSetting("General.MaxDataRows"), out maxDataRowsSetting))
+            if (int.TryParse(settings.LoadSetting("User.MaxDataRows"), out maxDataRowsSetting))
                 maxDataRows = maxDataRowsSetting;
             selectedPort = settings.LoadSetting("General.Port");
 
@@ -76,13 +76,29 @@ namespace BigBug
         private void buttonNewProject_Click(object sender, EventArgs e)
         {
             // Load Recent opened folder and set it to the folder browser initial path.
-            browserNewProject.SelectedPath = settings.LoadSetting("General.Recent");
+            browserNewProject.SelectedPath = settings.LoadSetting("General.RecentProject");
 
             // Show browser.
             if (browserNewProject.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                // If a folder selected, send a click event to RefreshProject button.
-                buttonRefreshProject_Click(null, null);
+                // Get supported file extensions.
+                string supportedFileExtensionsString = (settings.LoadSetting("User.FileExtensions") != "") ? settings.LoadSetting("User.FileExtensions") : Properties.Resources.supportedFileExtensions;
+                string[] supportedFileExtensions = supportedFileExtensionsString.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+
+                // Use ProjectScanner to scan all files.
+                if (!ProjectScanner.Scan(browserNewProject.SelectedPath, supportedFileExtensions, ref bbCodeBase))
+                {
+                    MessageBox.Show("No BBCode Descriptor has been found under the selected path.");
+                }
+
+                // Remember the project name including the number of recognized BBCode entries.
+                projectName = Path.GetFileName(browserNewProject.SelectedPath) + " #" + bbCodeBase.GetCodeCount();
+
+                // Set visuals for ProjectOpen state.
+                SetVisuals(GetVisuals() | VisualStates.ProjectOpen);
+
+                // Save teh successfuly opened project path.
+                settings.SaveSetting("General.RecentProject", browserNewProject.SelectedPath);
             }
         }
 
@@ -224,74 +240,32 @@ namespace BigBug
         }
 
         /**
-         * @brief Opens or re-opens a project from the selected location and scans all BBCode descriptors to fill the BBCodeBase.
+         * @brief Opens a single-file project from the selected location and scans all BBCode descriptors to fill the BBCodeBase.
          * @param sender
          * @param e
          */
-        private void buttonRefreshProject_Click(object sender, EventArgs e)
+        private void buttonNewSingleFileProject_Click(object sender, EventArgs e)
         {
-            string selectedProjectPath = "";
-            string[] fileList = { };
+            // Load Recent opened folder and set it to the folder browser initial path.
+            browserOpenSingleFile.FileName = settings.LoadSetting("General.RecentSingleFile");
 
-            try
+            // Show browser.
+            if (browserOpenSingleFile.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                // Open the 
-                selectedProjectPath = Path.GetFileName(browserNewProject.SelectedPath);
-                fileList = Directory.GetFiles(browserNewProject.SelectedPath, "*.*", SearchOption.AllDirectories);
-            }
-            catch { };
-
-            // Get the selected path and make sure that its not empty.
-            if (selectedProjectPath != "")
-            {
-                // Get supported file extensions.
-                string supportedFileExtensionsString = (settings.LoadSetting("General.FileExtensions") != "") ? settings.LoadSetting("General.FileExtensions") : Properties.Resources.supportedFileExtensions;
-                string[] supportedFileExtensions = supportedFileExtensionsString.Split(new char[]{' '}, StringSplitOptions.RemoveEmptyEntries);
-
-                // Create an empty BBCode database.
-                bbCodeBase = new BBCodeBase();
-
-                // Iterate all files under the selected path.
-                foreach (string fileName in fileList)
+                // Use ProjectScanner to scan the selected file.
+                if (!ProjectScanner.Scan(browserOpenSingleFile.FileName, new string[] { }, ref bbCodeBase))
                 {
-                    // Check the file extension for allowed extensions.
-                    if (File.Exists(fileName) && supportedFileExtensions.Contains(Path.GetExtension(fileName).TrimStart('.')))
-                    {
-                        // Open the file as text.
-                        StreamReader sr = File.OpenText(fileName);
-
-                        // Get pure, relative file name.
-                        string sourceFile = fileName.Replace(browserNewProject.SelectedPath, "");
-
-                        // Iterate all lines until the end.
-                        string lineText;
-                        int lineNumber = 0;
-                        while (!sr.EndOfStream)
-                        {
-                            // Read single line.
-                            lineText = sr.ReadLine();
-                            lineNumber++;
-
-                            // Try to parse the line with descriptor parser. Result is not null if successful.
-                            BBCodeObject bbCode = BBCodeDescriptorParser.Parse(lineText, sourceFile, lineNumber);
-
-                            // Add to the database (only if not null).
-                            bbCodeBase.AddBBCode(bbCode);
-                        }
-
-                        // Close the file.
-                        sr.Close();
-                    }
+                    MessageBox.Show("No BBCode Descriptor has been found under the selected path.");
                 }
 
                 // Remember the project name including the number of recognized BBCode entries.
-                projectName = Path.GetFileName(browserNewProject.SelectedPath) + " #" + bbCodeBase.GetCodeCount();
+                projectName = Path.GetFileName(browserOpenSingleFile.FileName) + " #" + bbCodeBase.GetCodeCount();
 
                 // Set visuals for ProjectOpen state.
                 SetVisuals(GetVisuals() | VisualStates.ProjectOpen);
 
                 // Save teh successfuly opened project path.
-                settings.SaveSetting("General.Recent", browserNewProject.SelectedPath);
+                settings.SaveSetting("General.RecentSingleFile", browserOpenSingleFile.FileName);
             }
         }
 

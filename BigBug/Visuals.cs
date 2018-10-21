@@ -80,7 +80,7 @@ namespace BigBug
                 comboPorts.Enabled = false;
                 textBaud.Enabled = false;
                 buttonNewProject.Enabled = false;
-                buttonRefreshProject.Enabled = false;
+                buttonNewSingleFileProject.Enabled = false;
                 buttonSave.Enabled = false;
 
                 // Enable receiption timer.
@@ -95,7 +95,7 @@ namespace BigBug
                 comboPorts.Enabled = true;
                 textBaud.Enabled = true;
                 buttonNewProject.Enabled = true;
-                buttonRefreshProject.Enabled = true;
+                buttonNewSingleFileProject.Enabled = true;
                 buttonSave.Enabled = true;
                 
                 // Disable receiption timer.
@@ -110,17 +110,11 @@ namespace BigBug
             {
                 // Show opened projecst name/description.
                 labelProjectName.Text = projectName;
-
-                // Show refresh button.
-                buttonRefreshProject.Visible = true;
             }
             else
             {
                 // Hide opened projecst name/description.
                 labelProjectName.Text = "";
-
-                // Hide refresh button.
-                buttonRefreshProject.Visible = false;
             }
 
             // Filter clear button (label) is only visible when filter text is entered.

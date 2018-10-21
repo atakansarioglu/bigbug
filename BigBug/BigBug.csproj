@@ -98,6 +98,7 @@
     </Compile>
     <Compile Include="IniFile.cs" />
     <Compile Include="Program.cs" />
+    <Compile Include="ProjectScanner.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SerialReceiver.cs" />
     <Compile Include="Settings.cs" />
