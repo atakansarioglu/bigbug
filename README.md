@@ -112,7 +112,7 @@ And below are shown the payload fields. (4) is string literal, (5) is replacemen
 
 * You don't need to write the same descriptor more than once in a project. You can describe once and use th described format in as many as needed parts of your project.
 * Scanned file types are: txt as mx ada ads adb asm asp au3 bc cln bash sh bsh csh bash_profile bashrc profile bat cmd nt c lex ml mli sml thy cmake cbl cbd cdb cdc cob litcoffee h hpp hxx cpp cxx cc ino cs css d diff patch f for f90 f95 f2k f23 f77 hs lhs las html htm shtml shtm xhtml xht hta ini inf reg url wer iss hex java js jsm jsx ts tsx json jsp kix lsp lisp lua mak m nfo nsi nsh mm pas pp p inc lpr pl pm plx php php3 php4 php5 phps phpt phtml ps ps1 psm1 properties py pyw r s splus rc rb rbw scm smd ss st sql mot srec swift tcl tek tex vb vbs v sv vh svh vhd vhdl xml xaml xsl xslt xsd xul kml svg mxml xsml wsdl xlf xliff xbl sxbl sitemap gml gpx plist yml yaml.
-* You can override the file types by defining `FileExtensions` under `General` section in settings.ini file (in BigBug.exe working directory). List format is `c cpp hpp` etc.
+* You can override the file types by defining `FileExtensions` under `User` section in settings.ini file (in BigBug.exe working directory). List format is `c cpp hpp` etc.
 
 ## **Serial Message Format**
 Below is an example serial message sent by microcontroller. (1) is shortcode of the message, (2) payloads and (3) is line terminator. Terminator can be either `\n` or `\r\n`.
@@ -138,7 +138,7 @@ And payloads are shown below with respective index numbers. Seperator character 
  * Space and backslash characters in values should be escaped with backslash (like `"\ "` or `"\\"`).
 
 ## **Message Display**
-BigBug is tested under 1MBaud continuous serial data rate and maximum number of displayed (remembered) message lines is limited to 100k by default. User can override that limit by defining `MaxDataRows` under `General` section of settings.ini file (in BigBug.exe working directory).
+BigBug is tested under 1MBaud continuous serial data rate and maximum number of displayed (remembered) message lines is limited to 100k by default. User can override that limit by defining `MaxDataRows` under `User` section of settings.ini file (in BigBug.exe working directory).
 Filtering is possible for messages. As an example entering `igb` into filter box will match message lines containing text `BigBug` and `|` character can be used for or'ing the filter confitions e.g. `filter1|filter2`.
 
 # **Screenshots**
