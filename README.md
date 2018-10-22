@@ -14,7 +14,7 @@ BigBug is a tool for displaying comprehensive debug messages on PC by sending on
 
 Consider the example:
 ~~~~c
-puts("HE");//@BB Hello World!
+puts("HE");//@BB[HE] Hello World!
 ~~~~
 Here you only send `HE\n` and BigBug prints `Hello World!` on PC screen.
 
