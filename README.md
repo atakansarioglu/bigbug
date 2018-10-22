@@ -145,23 +145,27 @@ Filtering is possible for messages. As an example entering `igb` into filter box
 # **Screenshots**
 1) Open a project. BigBug scans every file in the selected folder and every line of them to learn BigBug descriptors. After succesfully opening, number of descriptors found is shown next to the project name.
 
-<img src="https://github.com/atakansarioglu/bigbug/raw/master/Example/ScreenShots/BigBug-ScreenShot%20(1).png" width="598" alt="Open a project">
+<img src="https://github.com/atakansarioglu/bigbug/raw/master/Example/ScreenShots/bigbug-7-opening-new-project.png" width="598" alt="Open a project">
+
+Version 3.1.0+ supports single fle project which is useful when full source code is large or not exposed.
+
+<img src="https://github.com/atakansarioglu/bigbug/raw/master/Example/ScreenShots/bigbug-2-open-single-file-project.png" width="598" alt="Open single file project">
 
 2) Connect to serial port (comport)
 
-<img src="https://github.com/atakansarioglu/bigbug/raw/master/Example/ScreenShots/BigBug-ScreenShot%20(3).png" width="598" alt="Connect to serial port comport">
+<img src="https://github.com/atakansarioglu/bigbug/raw/master/Example/ScreenShots/bigbug-3-connect.png" width="598" alt="Connect to serial port comport">
 
 3) Messages are coming from UART will be displayed on the screen.
 
-<img src="https://github.com/atakansarioglu/bigbug/raw/master/Example/ScreenShots/BigBug-ScreenShot%20(4).png" width="598" alt="Messages are coming">
+<img src="https://github.com/atakansarioglu/bigbug/raw/master/Example/ScreenShots/bigbug-4-messages-are-displayed.png" width="598" alt="Messages are coming">
 
 4) Filter messages to see specific events of interest. Filter is case-insensitive and wildcard by-default. Different filters can be combined by or operator `|` character.
 
-<img src="https://github.com/atakansarioglu/bigbug/raw/master/Example/ScreenShots/BigBug-ScreenShot%20(5).png" width="598" alt="Filter messages">
+<img src="https://github.com/atakansarioglu/bigbug/raw/master/Example/ScreenShots/bigbug-5-filtering-messages.png" width="598" alt="Filter messages">
 
 5) Save the received messages to file. To save, port should be closed.
 
-<img src="https://github.com/atakansarioglu/bigbug/raw/master/Example/ScreenShots/BigBug-ScreenShot%20(8).png" width="598" alt="Save the received messages to file">
+<img src="https://github.com/atakansarioglu/bigbug/raw/master/Example/ScreenShots/bigbug-6-save-log.png" width="598" alt="Save the received messages to file">
 
 # **Notes**
 
