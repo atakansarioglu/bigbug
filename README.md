@@ -43,7 +43,7 @@ The very basic string output function `puts()` can be used for the simplest mess
 ~~~~c++
 puts("HE");//@BB[HE] Hello World!
 ~~~~
-Here BigBug scans this source line and knows `HE` means `Hello World!`. Whenever it receives `HE\n` from the serial port, `Hello World!` will be displayed.
+Here BigBug scans this source line and knows `HE` shortcode means `Hello World!`. Whenever it receives `HE\n` from the serial port, `Hello World!` will be displayed. 
 
 **2) Single payload** (replacement type).
 
@@ -110,6 +110,7 @@ And below are shown the payload fields. (4) is string literal, (5) is replacemen
                     (5)                     (6)
 ~~~~
 
+* Supported shortcode characters are ASCII letters only (A-Z, a-z).
 * You don't need to write the same descriptor more than once in a project. You can describe once and use th described format in as many as needed parts of your project.
 * Scanned file types are: txt as mx ada ads adb asm asp au3 bc cln bash sh bsh csh bash_profile bashrc profile bat cmd nt c lex ml mli sml thy cmake cbl cbd cdb cdc cob litcoffee h hpp hxx cpp cxx cc ino cs css d diff patch f for f90 f95 f2k f23 f77 hs lhs las html htm shtml shtm xhtml xht hta ini inf reg url wer iss hex java js jsm jsx ts tsx json jsp kix lsp lisp lua mak m nfo nsi nsh mm pas pp p inc lpr pl pm plx php php3 php4 php5 phps phpt phtml ps ps1 psm1 properties py pyw r s splus rc rb rbw scm smd ss st sql mot srec swift tcl tek tex vb vbs v sv vh svh vhd vhdl xml xaml xsl xslt xsd xul kml svg mxml xsml wsdl xlf xliff xbl sxbl sitemap gml gpx plist yml yaml.
 * You can override the file types by defining `FileExtensions` under `User` section in settings.ini file (in BigBug.exe working directory). List format is `c cpp hpp` etc.
