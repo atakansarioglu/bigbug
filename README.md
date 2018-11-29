@@ -6,15 +6,15 @@
 
 ## **Introduction**
 
-Sooner or later, every embedded engineer faces microcontrollers' insufficient debugging capabilities. Unless connecting a debugger, or interrupting/stopping the execution, it is challenging to collect information about what is going on in the box. You can use serial port to print messages but communication line has limited speed, especially when the environment is noisy. The speed limit of the communication also limits how often and how much data you can write using `printf()`.
+Sooner or later, every embedded engineer faces microcontrollers' insufficient debugging capabilities. Unless you connect a debugger, or interrupt/stop the execution, it is challenging to collect information about what is going on in the box. You can use a serial port to print messages but this method has limited speed, especially when the environment is noisy. Communication speed also limits how often and how much data you can write using `printf()`.
 
-Imagine you are using a RTOS and have many tasks running asynchronously. The best way of debugging on this environment is printing as many as possible messages on function entry, exit, measurement, event handlers, overflow of some timers etc. But honestly, every message slows down the system more. You can't send a 10-character sequence on every method entry.
+Imagine you are using a RTOS (real-time operating system) and have many tasks running asynchronously. The best way of debugging on this environment is printing as many messages as possible on function entry, exit, measurement, event handlers, overflow of some timers etc. But every message slows down the system more. You can't realistically send a 10-character sequence on every method entry.
 
-Fortunately, BigBug is here to help! You can tell many things by only sending 2-letter codes which BigBug translates into human language.
+Fortunately, BigBug is here to help! You can tell many things with only 2-letter codes which BigBug translates into human language.
 
 ## **How Can BigBug Help You?**
 
-BigBug is a tool for displaying comprehensive debug messages on a PC by sending only 2 letters (plus newline `\n`) from microcontroller via serial port (UART). The messages are interpreted on the PC and decoded using a lookup table that is obtained directly from your project's source code. The biggest benefit is keeping the MCU free for the real tasks rather than spending time printing long debug messages.
+BigBug is a tool for displaying comprehensive debug messages on a PC by sending only 2 letters (plus newline `\n`) from a microcontroller via serial port (UART). The messages are interpreted on the PC and decoded using a lookup table that is obtained directly from your project's source code. The biggest benefit is keeping the MCU free for real tasks rather than spending time printing long debug messages.
 
 Consider this example:
 
