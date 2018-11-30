@@ -168,6 +168,7 @@ Filtering is possible for messages. As an example entering `igb` into filter box
 
 1. Open a project. BigBug scans every file in the selected folder and every line of them to learn BigBug descriptors. After successfully opening, the number of descriptors found is shown next to the project name.
     ![Open a project](https://github.com/atakansarioglu/bigbug/raw/master/Example/ScreenShots/bigbug-7-opening-new-project.png "Open a project")
+    
     Version 3.1.0+ supports single fle project which is useful when full source code is large or not exposed.
 
     ![Open single file project](https://github.com/atakansarioglu/bigbug/raw/master/Example/ScreenShots/bigbug-2-open-single-file-project.png "Open single file project")
