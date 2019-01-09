@@ -40,6 +40,8 @@ namespace BigBug
             DataUpdate = 0x01 << 2,
         }
 
+        private int lastRowCount;
+
         private VisualStates visualState = VisualStates.Default;///< Keeps the up-to-date visual layout.
 
         /**
@@ -51,8 +53,10 @@ namespace BigBug
             // Data update.
             if ((state & VisualStates.DataUpdate) == VisualStates.DataUpdate)
             {
-                // Bind dataTable to dataGrid.
-                dataGrid.DataSource = dataTable;
+                if (lastRowCount == dataGrid.Rows.Count)
+                    return;
+
+                lastRowCount = dataGrid.Rows.Count;
 
                 // Set column properties, if columns are created.
                 if (dataGrid.Columns.Count == 2)
@@ -65,8 +69,11 @@ namespace BigBug
                         dataGrid.Columns[1].FillWeight = 10000;
 
                     // Scroll to the bottom of the view.
-                    if (dataGrid.Rows.Count > 0)
-                        dataGrid.FirstDisplayedScrollingRowIndex = dataGrid.Rows.Count - 1;
+                    if (dataGrid.Rows.Count > 0 && checkAutoscroll.Checked)
+                    {
+                        dataGrid.CurrentCell = dataGrid.Rows[dataGrid.RowCount - 1].Cells[0];
+                        dataGrid.ClearSelection();
+                    }
                 }
 
                 // Clear DataUpdate state bit.
@@ -88,6 +95,10 @@ namespace BigBug
 
                 // Change button name.
                 buttonPortOpenClose.Text = "&Port Close";
+
+
+                // Bind dataTable to dataGrid.
+                dataGrid.DataSource = dataTable;
             }
             else
             {

@@ -185,9 +185,6 @@ namespace BigBug
          */
         private void serialCommListenerTimer_Tick(object sender, EventArgs e)
         {
-            // Unbind dataTable from dataGrid (improves performance).
-            dataGrid.DataSource = null;
-
             // Call serial data receiver.
             serialComm.GetSerialData(ref bbCodeBase, maxDataRows);
 

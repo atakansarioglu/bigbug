@@ -49,6 +49,7 @@
             this.dataGrid = new System.Windows.Forms.DataGridView();
             this.labelClearFilter = new System.Windows.Forms.Label();
             this.browserOpenSingleFile = new System.Windows.Forms.OpenFileDialog();
+            this.checkAutoscroll = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -232,7 +233,15 @@
             this.labelClearFilter.Text = "X";
             this.labelClearFilter.Visible = false;
             this.labelClearFilter.Click += new System.EventHandler(this.labelClearFilter_Click);
-            // 
+            //
+            // checkAutoscroll
+            //
+            this.checkAutoscroll.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.checkAutoscroll.Text = "Autoscroll";
+            this.checkAutoscroll.Checked = true;
+            this.checkAutoscroll.Location = new System.Drawing.Point(200, 517);
+            this.checkAutoscroll.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.checkAutoscroll.Size = new System.Drawing.Size(120, 17);
             // browserOpenSingleFile
             // 
             this.browserOpenSingleFile.FileName = "browserOpenSingleFile";
@@ -247,6 +256,7 @@
             this.Controls.Add(this.labelFilter);
             this.Controls.Add(this.buttonNewSingleFileProject);
             this.Controls.Add(this.textFilter);
+            this.Controls.Add(this.checkAutoscroll);
             this.Controls.Add(this.labelAuthor);
             this.Controls.Add(this.labelProjectName);
             this.Controls.Add(this.buttonClear);
@@ -288,6 +298,7 @@
         private System.Windows.Forms.DataGridView dataGrid;
         private System.Windows.Forms.Label labelClearFilter;
         private System.Windows.Forms.OpenFileDialog browserOpenSingleFile;
+        private System.Windows.Forms.CheckBox checkAutoscroll;
     }
 }
 
