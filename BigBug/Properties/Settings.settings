@@ -3,5 +3,27 @@
   <Profiles>
     <Profile Name="(Default)" />
   </Profiles>
+  <Settings>
+    <Setting Name="Baud" Type="System.String" Scope="User">
+        <Value> "9600" </Value>
+    </Setting>
+    <Setting Name="Port" Type="System.String" Scope="User">
+        <Value> "/dev/ttyUSB0" </Value>
+    </Setting>
+    <Setting Name="maxDataRows" Type="int" Scope="User">
+        <Value> 100000 </Value>
+    </Setting>
+    <Setting Name="RecentProject" Type="System.String" Scope="User">
+        <Value> "" </Value>
+    </Setting>
+    <Setting Name="FileExtensions" Type="System.String" Scope="User">
+        <Value> "c cpp hpp" </Value>
+    </Setting>
+    <Setting Name="SaveDir" Type="System.String" Scope="User">
+        <Value> "" </Value>
+    </Setting>
+    <Setting Name="RecentSingleFile" Type="System.String" Scope="User">
+        <Value> "" </Value>
+    </Setting>
   <Settings />
 </SettingsFile>

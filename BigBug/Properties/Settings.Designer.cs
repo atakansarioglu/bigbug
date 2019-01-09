@@ -22,5 +22,117 @@ namespace BigBug.Properties {
                 return defaultInstance;
             }
         }
+
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("115200")]
+        public string Baud
+        {
+            get
+            {
+                return ((string)(this["Baud"]));
+            }
+
+            set
+            {
+                this["Baud"] = value;
+            }
+        }
+
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("COM1")]
+        public string Port
+        {
+            get
+            {
+                return ((string)(this["Port"]));
+            }
+
+            set
+            {
+                this["Port"] = value;
+            }
+        }
+
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("100000")]
+        public int MaxDataRows
+        {
+            get
+            {
+                return ((int)(this["MaxDataRows"]));
+            }
+
+            set
+            {
+                this["MaxDataRows"] = value;
+            }
+        }
+
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string RecentProject
+        {
+            get
+            {
+                return ((string)(this["RecentProject"]));
+            }
+
+            set
+            {
+                this["RecentProject"] = value;
+            }
+        }
+
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("c cpp hpp")]
+        public string FileExtensions
+        {
+            get
+            {
+                return ((string)(this["FileExtensions"]));
+            }
+
+            set
+            {
+                this["FileExtensions"] = value;
+            }
+        }
+
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string SaveDir
+        {
+            get
+            {
+                return ((string)(this["SaveDir"]));
+            }
+
+            set
+            {
+                this["SaveDir"] = value;
+            }
+        }
+
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string RecentSingleFile
+        {
+            get
+            {
+                return ((string)(this["RecentSingleFile"]));
+            }
+
+            set
+            {
+                this["RecentSingleFile"] = value;
+            }
+        }
     }
 }

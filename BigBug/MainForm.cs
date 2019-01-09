@@ -38,7 +38,6 @@ namespace BigBug
 {
     public partial class MainForm : Form
     {
-        Settings settings = new Settings("settings.ini"); ///< Settings wrapper to load or save settings.
         BBCodeBase bbCodeBase = new BBCodeBase(); ///< Database for all known (scanned) BBCode descriptors.
         DataTable dataTable = new DataTable(); ///< Table of received messages that is shown to the user.
         SerialReceiver serialComm; ///< Serial communication methods.
@@ -57,11 +56,9 @@ namespace BigBug
             SetVisuals(VisualStates.Default);
 
             // Restore Baud rate and MaxDataRows from the settings.
-            textBaud.Text = (settings.LoadSetting("General.Baud") != "") ? settings.LoadSetting("General.Baud") : "9600";
-            int maxDataRowsSetting = 0;
-            if (int.TryParse(settings.LoadSetting("User.MaxDataRows"), out maxDataRowsSetting))
-                maxDataRows = maxDataRowsSetting;
-            selectedPort = settings.LoadSetting("General.Port");
+            textBaud.Text = Properties.Settings.Default.Baud;
+            maxDataRows = Properties.Settings.Default.MaxDataRows;
+            selectedPort = Properties.Settings.Default.Port;
 
             // Initialize serial communicator in order to fill dataTable with received data.
             serialComm = new SerialReceiver(ref dataTable);
@@ -76,13 +73,13 @@ namespace BigBug
         private void buttonNewProject_Click(object sender, EventArgs e)
         {
             // Load Recent opened folder and set it to the folder browser initial path.
-            browserNewProject.SelectedPath = settings.LoadSetting("General.RecentProject");
+            browserNewProject.SelectedPath = Properties.Settings.Default.RecentProject;
 
             // Show browser.
             if (browserNewProject.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 // Get supported file extensions.
-                string supportedFileExtensionsString = (settings.LoadSetting("User.FileExtensions") != "") ? settings.LoadSetting("User.FileExtensions") : Properties.Resources.supportedFileExtensions;
+                string supportedFileExtensionsString = Properties.Settings.Default.FileExtensions;
                 string[] supportedFileExtensions = supportedFileExtensionsString.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
 
                 // Use ProjectScanner to scan all files.
@@ -98,7 +95,8 @@ namespace BigBug
                 SetVisuals(GetVisuals() | VisualStates.ProjectOpen);
 
                 // Save teh successfuly opened project path.
-                settings.SaveSetting("General.RecentProject", browserNewProject.SelectedPath);
+                Properties.Settings.Default.RecentProject = browserNewProject.SelectedPath;
+                Properties.Settings.Default.Save();
             }
         }
 
@@ -124,8 +122,9 @@ namespace BigBug
                 if ((comboPorts.SelectedItem != null) && serialComm.OpenPort(comboPorts.SelectedItem.ToString(), textBaud.Text, false, false))
                 {
                     // Save the successfull settings.
-                    settings.SaveSetting("General.Baud", textBaud.Text.ToString());
-                    settings.SaveSetting("General.Port", comboPorts.SelectedItem.ToString());
+                    Properties.Settings.Default.Baud = textBaud.Text.ToString();
+                    Properties.Settings.Default.Port = comboPorts.SelectedItem.ToString();
+                    Properties.Settings.Default.Save();
                     selectedPort = comboPorts.SelectedItem.ToString();
 
                     // Set SerialEnabled bit and update visuals.
@@ -221,7 +220,7 @@ namespace BigBug
         private void buttonSave_Click(object sender, EventArgs e)
         {
             saveFile.FileName = "";
-            saveFile.InitialDirectory = settings.LoadSetting("General.Save");
+            saveFile.InitialDirectory = Properties.Settings.Default.SaveDir;
 
             if ((saveFile.ShowDialog() == System.Windows.Forms.DialogResult.OK) && !timerSerialCommListener.Enabled)
             {
@@ -235,7 +234,8 @@ namespace BigBug
                 fs.Close();
 
                 //-- Save.
-                settings.SaveSetting("General.Save", Path.GetDirectoryName(saveFile.FileName));
+                Properties.Settings.Default.SaveDir = Path.GetDirectoryName(saveFile.FileName);
+                Properties.Settings.Default.Save();
             }
         }
 
@@ -247,7 +247,7 @@ namespace BigBug
         private void buttonNewSingleFileProject_Click(object sender, EventArgs e)
         {
             // Load Recent opened folder and set it to the folder browser initial path.
-            browserOpenSingleFile.FileName = settings.LoadSetting("General.RecentSingleFile");
+            browserOpenSingleFile.FileName = Properties.Settings.Default.RecentSingleFile;
 
             // Show browser.
             if (browserOpenSingleFile.ShowDialog() == System.Windows.Forms.DialogResult.OK)
@@ -265,7 +265,8 @@ namespace BigBug
                 SetVisuals(GetVisuals() | VisualStates.ProjectOpen);
 
                 // Save teh successfuly opened project path.
-                settings.SaveSetting("General.RecentSingleFile", browserOpenSingleFile.FileName);
+                Properties.Settings.Default.RecentSingleFile = browserOpenSingleFile.FileName;
+                Properties.Settings.Default.Save();
             }
         }
 
